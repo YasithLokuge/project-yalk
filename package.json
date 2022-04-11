@@ -1,0 +1,15 @@
+{
+  "name": "@yalk/project-yalk",
+  "packageManager": "yarn@3.2.0",
+  "workspaces": {
+    "packages": [
+      ".ci-cd",
+      "packages/web-client",
+      "packages/backend",
+      "infrastructure/pulumi"
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
+}

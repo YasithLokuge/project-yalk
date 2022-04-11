@@ -1,0 +1,18 @@
+{
+  "name": "@yalk/backend",
+  "packageManager": "yarn@3.2.0",
+  "devDependencies": {
+    "@aws-sdk/types": "^3.40.0",
+    "@types/aws-lambda": "^8.10.85",
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1033.0",
+    "typescript": "^4.5.2"
+  },
+  "scripts": {
+    "build": "rm -rf dist && yarn tsc"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.177",
+    "lodash": "^4.17.21"
+  }
+}

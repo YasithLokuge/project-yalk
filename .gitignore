@@ -1,0 +1,14 @@
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.DS_Store
+**/.DS_Store
+node_modules
+**/node_modules
+**/tsconfig.tsbuildinfo
+**/stack-*.json
+**/Pulumi.*.yaml

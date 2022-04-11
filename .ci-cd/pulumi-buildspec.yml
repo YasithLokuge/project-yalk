@@ -1,0 +1,28 @@
+version: 0.2
+environment_variables:
+  plaintext:
+    STACK: "staging"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo Installing dependencies...
+      - apt install curl -y
+      - curl -fsSL https://get.pulumi.com/ | sh
+      - export PATH=$PATH:$HOME/.pulumi/bin
+      - printenv
+  pre_build:
+    commands:
+      - yarn install
+      - yarn workspace @yalk/infra-aws-pulumi install
+  build:
+    on-failure: ABORT
+    commands:
+      - echo deploy started on `date`
+      - yarn workspace @yalk/infra-aws-pulumi pulumi login --cloud-url s3://state.yalk.io
+      - yarn workspace @yalk/infra-aws-pulumi pulumi stack select ${STACK}
+      - yarn workspace @yalk/infra-aws-pulumi pulumi up --yes
+  post_build:
+    commands:
+      - echo pulumi deploy completed on `date`

@@ -1,0 +1,4 @@
+{
+  "name": "@yalk/ci-cd",
+  "packageManager": "yarn@3.2.0"
+}

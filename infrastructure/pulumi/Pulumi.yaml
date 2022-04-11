@@ -1,0 +1,19 @@
+name: project-yalk
+runtime: nodejs
+description: project yalk IaC pulumi
+template:
+  secretsprovider:
+    description: AWS Secrets Manager
+  encryptedkey:
+    description: AWS KMS encrypted key
+  config:
+    aws:region: 
+      description: AWS region
+      default: us-east-1
+    project-yalk:settings:
+      domain:
+        description: Domain 
+        default: staging.app.yalk.io
+      hostedZone:
+        description: Hosted zone name
+        default: yalk.io
