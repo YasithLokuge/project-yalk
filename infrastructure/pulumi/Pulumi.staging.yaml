@@ -1,0 +1,6 @@
+encryptionsalt: v1:ixqwvt3tWAs=:v1:P19bmovPsX6Wxp4F:RcMrrhjGPt2TVzw0hnpMHPFYGY8uRg==
+config:
+  aws:region: us-east-1
+  project-yalk:settings:
+    domain: staging.app.yalk.io
+    hostedZone: yalk.io

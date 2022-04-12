@@ -11,4 +11,3 @@ node_modules
 **/node_modules
 **/tsconfig.tsbuildinfo
 **/stack-*.json
-**/Pulumi.*.yaml

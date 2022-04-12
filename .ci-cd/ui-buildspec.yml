@@ -30,5 +30,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: 'packages/web-client/dist*'
+  base-directory: 'packages/web-client/out*'
   discard-paths: yes
