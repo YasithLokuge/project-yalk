@@ -24,7 +24,7 @@ phases:
   post_build:
     commands:
       - echo web-client build completed on `date`
-      - aws s3 cp packages/web-client/dist s3://${S3_BUCKET} --recursive
+      - aws s3 cp packages/web-client/out s3://${S3_BUCKET} --recursive
       - echo Build completed on `date`
       - aws cloudfront create-invalidation --distribution-id ${CDN_DISTRIBUTION_ID} --paths "/*"
 artifacts:
