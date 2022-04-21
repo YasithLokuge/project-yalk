@@ -1,10 +1,10 @@
 import React from 'react'
 import HomeIcon from '@mui/icons-material/Home';
-import FormatListNumberedRtlIcon from '@mui/icons-material/FormatListNumberedRtl';
 import NoteIcon from '@mui/icons-material/Note';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import PollIcon from '@mui/icons-material/Poll';
 import PieChartIcon from '@mui/icons-material/PieChart';
+import { AttachMoneyOutlined } from '@mui/icons-material';
 
 export const SidebarData = [
     {
@@ -16,23 +16,23 @@ export const SidebarData = [
     },
     {
 
-        title: "Categories" ,
-        icon: <FormatListNumberedRtlIcon />,
-        link: "/categories"
+        title: "Usage" ,
+        icon: <PollIcon/>,
+        link: "/usage"
 
     },
     {
 
-        title: "Records" ,
+        title: "Subscription" ,
         icon: <NoteIcon />,
-        link: "/records"
+        link: "/subscription"
 
     },
     {
 
-        title: "Monthly Income" ,
-        icon: <PollIcon />,
-        link: "/charts"
+        title: "Pricing" ,
+        icon: <AttachMoneyOutlined />,
+        link: "/pricing"
 
     },
     {

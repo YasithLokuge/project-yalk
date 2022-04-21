@@ -1,10 +1,8 @@
-import type { NextPage } from 'next'
-import Sidebar from './sidebar/sidebar'
+import React from 'react';
+import MainNav from '../components/layout/MainNav'
 
-const Home: NextPage = () => {
+export default function Index(props: any) {
   return (
-    <Sidebar></Sidebar>
-  )
+    <MainNav mainPage={props.mainPage}></MainNav>
+  );
 }
-
-export default Home

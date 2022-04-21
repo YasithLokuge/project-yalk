@@ -14,6 +14,8 @@ import createEmotionCache from '../utility/createEmotionCache';
 import lightThemeOptions from '../styles/theme/lightThemeOptions';
 import darkThemeOptions from '../styles/theme/darkThemeOptions';
 import '../styles/globals.css';
+import Index from '.';
+import MainNav from '../components/layout/MainNav';
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -33,7 +35,7 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
       <CacheProvider value={emotionCache}>
         <ThemeProvider theme={themeConfig}>
           <CssBaseline />
-          <Component {...pageProps} />
+          <Index mainPage={<Component {...pageProps} />}></Index>
         </ThemeProvider>
       </CacheProvider>
     </NoSSR>

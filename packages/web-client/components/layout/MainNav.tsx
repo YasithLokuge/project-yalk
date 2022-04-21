@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -19,6 +18,11 @@ import ListItemText from '@mui/material/ListItemText';
 import { SidebarData } from '../../utility/sidebarData';
 import Switch from '@mui/material/Switch';
 import useDarkMode from 'use-dark-mode';
+import MenuItem from '@mui/material/MenuItem';
+import { useRouter } from 'next/router'
+import Container from '@mui/material/Container';
+import Link from '../../utility/link';
+import { useState } from 'react';
 
 const drawerWidth = 240;
 
@@ -71,10 +75,18 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function Sidebar() {
+
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  alignItems: 'flex-start',
+  paddingTop: theme.spacing(1),
+  paddingBottom: theme.spacing(2),
+}));
+
+export default function MainNav(props: any) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(true);
   const darkMode = useDarkMode(true);
+  const router = useRouter();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -84,6 +96,12 @@ export default function Sidebar() {
     setOpen(false);
   };
 
+  /**
+   * https://fullstacksoup.blog/2021/11/07/next-js-with-material-ui-layout-with-app-bar-and-drawer/
+   */
+  const activeRoute = (routeName:string, currentRoute: string) => {
+    return routeName === currentRoute? true : false;
+  }
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -92,7 +110,7 @@ export default function Sidebar() {
         open={open}
         color='primary'
       >
-        <Toolbar>
+        <StyledToolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -102,11 +120,19 @@ export default function Sidebar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography
+            sx={{ flexGrow: 1, alignSelf: "flex-end" }} 
+            variant="h6" 
+            noWrap 
+            component="div"
+          >
             Project Yalk
           </Typography>
-          <Switch checked={darkMode.value} onChange={darkMode.toggle} />
-        </Toolbar>
+          <Switch
+            edge="end"
+            checked={darkMode.value} 
+            onChange={darkMode.toggle} />
+        </StyledToolbar>
       </AppBar>
       <Drawer
         sx={{
@@ -129,20 +155,24 @@ export default function Sidebar() {
         <Divider />
         <List>
           {SidebarData.map((item, index) => (
-            <ListItem button key={item.title}>
-              <ListItemIcon>
-                <Icon>{item.icon}</Icon>
-              </ListItemIcon>
-              <ListItemText primary={item.title} />
-            </ListItem>
+            <Link href={item.link} style={{ textDecoration: 'none' }} key={index}>
+              <MenuItem selected={activeRoute(item.link, router.pathname)}>
+                <ListItem button key={index}  >
+                  <ListItemIcon>
+                    <Icon>{item.icon}</Icon>
+                  </ListItemIcon>
+                  <ListItemText primary={item.title} />
+                </ListItem>
+              </MenuItem>
+            </Link>
           ))}
         </List>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        <Typography paragraph>
-          Hello!
-        </Typography>
+        <Container maxWidth="xl">
+          {props.mainPage}
+        </Container>
       </Main>
     </Box>
   );

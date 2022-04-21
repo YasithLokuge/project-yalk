@@ -1,6 +1,7 @@
 {
   "name": "@yalk/project-yalk",
   "packageManager": "yarn@3.2.0",
+  "license": "MIT",
   "workspaces": {
     "packages": [
       ".ci-cd",
