@@ -1,13 +1,12 @@
 {
   "name": "@yalk/web-client",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development env-cmd -f env/.env.development next dev",
-    "build:development": "NODE_ENV=development env-cmd -f env/.env.development next build && next export",
-    "build:staging": "env-cmd -f env/.env.staging next build && next export",
-    "build:production": "NODE_ENV=production env-cmd -f env/.env.production next build && next export",
-    "start:staging": "env-cmd -f env/.env.staging next start",
+    "dev": "NODE_ENV=development env-cmd -f env/.env.development --fallback .env next dev",
+    "build:development": "NODE_ENV=development env-cmd -f env/.env.development --fallback .env next build && next export",
+    "build:staging": "env-cmd -f env/.env.staging --fallback .env next build && next export",
+    "build:production": "NODE_ENV=production env-cmd -f env/.env.production --fallback .env next build && next export",
+    "start:staging": "env-cmd -f env/.env.staging --fallback .env next start",
     "start": "next start",
     "lint": "next lint"
   },
