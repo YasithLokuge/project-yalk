@@ -17,3 +17,6 @@ template:
       hostedZone:
         description: Hosted zone name
         default: yalk.io
+      application:
+        description: Name of the application
+        default: Project Yalk

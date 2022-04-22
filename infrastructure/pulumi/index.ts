@@ -74,6 +74,7 @@ export = async () => {
 
     createSSMParameter('s3-website-bucket', bucket.bucket, 'String',  { provider: assumedRole, dependsOn: [assumedRole, bucket] });
     createSSMParameter('cloudfront-id', contentDistribution.id, 'String',  { provider: assumedRole, dependsOn: [assumedRole, contentDistribution] });
+    createSSMParameter('application', pulumi.interpolate`${settings.application}`, 'String',  { provider: assumedRole, dependsOn: [assumedRole, contentDistribution] });
 
     // Export output property of `bucket` as a stack output
     return {

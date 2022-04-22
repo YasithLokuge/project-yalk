@@ -25,6 +25,7 @@ export interface Settings {
     sessionName?: string;
     user: string;
     userKey: string;
+    application: string;
 }
 
 export const getSettings = (): Settings => {

@@ -4,3 +4,4 @@ config:
   project-yalk:settings:
     domain: app.yalk.io
     hostedZone: yalk.io
+    application: Project Yalk
