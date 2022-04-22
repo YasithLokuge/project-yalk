@@ -2,11 +2,11 @@ version: 0.2
 env:
   variables:
     STACK: staging
+    NEXT_PUBLIC_STAGE: ${STACK}
   parameter-store:
     S3_BUCKET: project-yalk-${STACK}-ssm-s3-website-bucket
     CDN_DISTRIBUTION_ID: project-yalk-${STACK}-ssm-cloudfront-id
     NEXT_PUBLIC_HOSTNAME: project-yalk-${STACK}-ssm-s3-website-bucket
-    NEXT_PUBLIC_STAGE: ${STACK}
     NEXT_PUBLIC_APPLICATION: project-yalk-${STACK}-ssm-application
 
 phases:
