@@ -23,6 +23,7 @@ import { useRouter } from 'next/router'
 import Container from '@mui/material/Container';
 import Link from '../../utility/link';
 import { useState } from 'react';
+import configs from '../../utility/env';
 
 const drawerWidth = 240;
 
@@ -126,7 +127,7 @@ export default function MainNav(props: any) {
             noWrap 
             component="div"
           >
-            Project Yalk
+            {configs.application}
           </Typography>
           <Switch
             edge="end"
