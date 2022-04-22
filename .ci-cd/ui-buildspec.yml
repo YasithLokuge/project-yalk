@@ -20,7 +20,7 @@ phases:
     on-failure: ABORT
     commands:
       - echo Build started on `date`
-      - yarn workspace @yalk/web-client build:{STACK}
+      - yarn workspace @yalk/web-client build:${STACK}
   post_build:
     commands:
       - echo web-client build completed on `date`
